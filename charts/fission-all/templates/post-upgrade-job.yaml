@@ -32,4 +32,6 @@ spec:
         - name: post-upgrade-job
           image: "fission/alpinecurl"
           command: ["sh", "-c", "/usr/bin/curl -m 5 -H \"Content-Type: application/json\" -X POST -d '{\"type\": \"helm-post-upgrade\", \"chartName\": \"{{ .Chart.Name }}\", \"chartVersion\": \"{{ .Chart.Version }}\"}' https://g.fission.sh/analytics || true"]
+          resources:
+{{ toYaml .Values.jobs.resources | indent 12 }}
 {{ end }}

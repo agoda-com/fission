@@ -30,4 +30,6 @@ spec:
         imagePullPolicy: {{ .Values.pullPolicy }}
         command: [ "/pre-upgrade-checks" ]
         args: ["--fn-pod-namespace", "{{ .Values.functionNamespace }}", "--envbuilder-namespace", "{{ .Values.builderNamespace }}"]
+        resources:
+{{ toYaml .Values.jobs.resources | indent 10 }}
       serviceAccount: fission-svc

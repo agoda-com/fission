@@ -541,14 +541,12 @@ spec:
 #    spec:
 #      containers:
 #      - name: nginx
-#         resources:
-# {{ toYaml .Values.resources | indent 10 }}
+#         resources: []
 #        image: {{ .Values.fissionUiImage }}
 #      - name: kubectl-proxy
 #        image: lachlanevenson/k8s-kubectl
 #        args: ["proxy", "--port", "8001", "--address", "127.0.0.1"]
-#        resources:
-# {{ toYaml .Values.resources | indent 10 }}
+#        resources: []
 #      serviceAccount: fission-svc
 
 ---
